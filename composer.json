@@ -1,2 +1,19 @@
 {
+	"name": "crazedsanity/core",
+	"license": "MIT",
+	"description": "Core PHP libraries for all things Crazed(Sanity).",
+	"keywords": ["php", "dry", "oaoo"],
+	"homepage": "http://www.crazedsanity.com",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Dan Falconer",
+			"email": "github@crazedsanity.com",
+			"homepage": "http://www.crazedsanity.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php":	">=5.3.0"
+	}
 }
