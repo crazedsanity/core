@@ -2,6 +2,10 @@
 
 namespace crazedsanity;
 
+use \Exception;
+use \InvalidArgumentException;
+use \LogicException;
+
 class ToolBox {
 	
 	static public $debugRemoveHr = 0;
@@ -11,16 +15,20 @@ class ToolBox {
 	/**
 	 * Automatically selects either the header() function, or printing meta-refresh data for redirecting a browser.
 	 */
-	static public function conditional_header($url, $exitAfter=TRUE, $permRedir=FALSE) {
+	static public function conditional_header($url, $permRedir=FALSE) {
+		if(count(func_get_args())==3) {
+			self::debug_print(func_get_args(),1);
+			throw new InvalidArgumentException("the 'exitAfter' argument is no longer valid");
+		}
 		
-		if(is_array($_SESSION)) {
+		if(isset($_SESSION) && is_array($_SESSION)) {
 			//do some things to help protect against recursive redirects.
 			if(isset($_SESSION['__conditional_header__'])) {
 				$number = $_SESSION['__conditional_header__']['number'];
 				$lastTime = $_SESSION['__conditional_header__']['last_time'];
 				if((time() - $lastTime) <= 1 && $number > 5) {
 					unset($_SESSION['__conditional_header__']);
-					throw new exception(__METHOD__ .": too many redirects (". $number .") in a short time, last url: (". $url .")");
+					throw new Exception(__METHOD__ .": too many redirects (". $number .") in a short time, last url: (". $url .")");
 				}
 				else {
 					$_SESSION['__conditional_header__']['number']++;
@@ -36,7 +44,7 @@ class ToolBox {
 		}
 		
 		if(!strlen($url)) {
-			throw new exception(__METHOD__ .": failed to specify URL (". $url .")");
+			throw new InvalidArgumentException(__METHOD__ .": failed to specify URL (". $url .")");
 		}
 		else {
 			if(headers_sent()) {
@@ -58,10 +66,6 @@ class ToolBox {
 				}
 				header("location:$url");
 			}
-		}
-		
-		if($exitAfter) {
-			exit;
 		}
 	}//end conditional_header()
 	//================================================================================================================
