@@ -191,7 +191,7 @@ class TestOfCSFileSystem extends PHPUnit_Framework_TestCase {
 			
 			//now let's make the array MASSIVE by replicating the file lines over & over again.
 			$finalFileLines = array();
-			$replicate = 1000;
+			$replicate = 100;
 			$myContent = null;
 			$actualNum = 0;
 			for($x=0; $x<$replicate;$x++) {
@@ -212,7 +212,7 @@ class TestOfCSFileSystem extends PHPUnit_Framework_TestCase {
 			
 			//randomly pull a line and make sure it starts with the right phrase.
 			$this->writer->openFile($appendTestFile, 'r');
-			$linesToTest = 100;
+			$linesToTest = 10;
 			
 			for($i=0;$i<$linesToTest;$i++) {
 				$randomLine = rand(0, ($actualNum -1));
