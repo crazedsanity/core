@@ -544,6 +544,7 @@ class ToolBox {
 	 * @param $printItForMe	(bool,optional) whether it should be printed or just returned.
 	 * 
 	 * @return (string)		printed data.
+	 * @codeCoverageIgnore
 	 */
 	static public function debug_print($input=NULL, $printItForMe=NULL, $removeHR=NULL, $usePreTags=true) {
 		if(!is_numeric($removeHR)) {
@@ -737,7 +738,7 @@ class ToolBox {
 				$realVals = $trueFalseMapper;
 			}
 			else {
-				throw new exception(__METHOD__ .": invalid true/false map");
+				throw new \InvalidArgumentException(__METHOD__ .": invalid true/false map");
 			}
 		}
 		else {
@@ -794,6 +795,8 @@ class ToolBox {
 	
 	
 	//##########################################################################
+	/** @codeCoverageIgnore
+	 */
 	static public function debug_var_dump($data, $printItForMe=null, $removeHr=null) {
 		
 		ob_start();
