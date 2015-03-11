@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * TODO: determine suffix priority lexically instead of using a hard-coded $suffixList....
+ *   For more information, check out semver.org (Semantic Versioning).
+ */
+
 namespace crazedsanity;
 
 class Version {

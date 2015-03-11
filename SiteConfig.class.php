@@ -3,11 +3,8 @@
 /*
  * A class for handling configuration of database-driven web applications.
  * 
- * NOTICE::: this class requires that cs-phpxml and cs-arraytopath are both available
- * at the same directory level as cs-content; all projects are SourceForge.net projects,
- * using their unix names ("cs-phpxml" and "cs-arrayToPath").  The cs-phpxml project 
- * requires cs-arrayToPath for parsing XML paths.
- * 
+ * Takes configuration settings and puts them into constants and/or global 
+ *   variables. Values from other sections can be inherited using placeholders.
  */
 
 namespace crazedsanity;

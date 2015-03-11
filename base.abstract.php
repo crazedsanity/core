@@ -1,7 +1,4 @@
 <?php
-/*
- * Created on Aug 19, 2009
- */
 
 namespace crazedsanity;
 
@@ -24,7 +21,6 @@ abstract class baseAbstract {
 	
 	//-------------------------------------------------------------------------
 	public function __construct() {
-		//$this->set_version_file_location(dirname(__FILE__) .'/../VERSION');
 		self::GetVersionObject();
 	}//end __construct()
 	//-------------------------------------------------------------------------

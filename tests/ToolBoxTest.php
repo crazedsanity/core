@@ -99,6 +99,11 @@ class TestOfToolBox extends PHPUnit_Framework_TestCase {
 		$this->assertEquals(false, ToolBox::interpret_bool('1', array(true, false)));
 	}
 	
+	public function test_whereCalled() {
+		$data = crazedsanity\get_where_called();
+		$this->assertFalse(is_null($data));
+	}
+	
 }//end TestOfToolBox
 //=============================================================================
 

@@ -20,15 +20,6 @@ function debug_backtrace($printItForMe=NULL,$removeHR=NULL) {
 			$removeHR = $GLOBALS['DEBUGREMOVEHR'];
 		}
 	}
-//	if(function_exists("debug_print_backtrace")) {
-//		//it's PHP5.  use output buffering to capture the data.
-//		ob_start();
-//		debug_print_backtrace();
-//		
-//		$myData = ob_get_contents();
-//		ob_end_clean();
-//	}
-//	else {
 		//create our own backtrace data.
 		$stuff = \debug_backtrace();
 		if(is_array($stuff)) {
@@ -38,35 +29,34 @@ function debug_backtrace($printItForMe=NULL,$removeHR=NULL) {
 					
 					$fromClass = '';
 					if(isset($arr['class']) && strlen($arr['class'])) {
-						$fromClass = $arr['class'] .'::';
-					}
-					
-					$args = '';
-					foreach($arr['args'] as $argData) {
-						$args = ToolBox::create_list($args, ToolBox::truncate_string(ToolBox::debug_print($argData, 0, 1, false), 600), ', ');
-					}
-					
-					$fileDebug = "";
-					if(isset($arr['file'])) {
-						$fileDebug = " from file <u>". $arr['file'] ."</u>, line #". $arr['line'];
-					}
-					$tempArr[$num] = $fromClass . $arr['function'] .'('. $args .')'. $fileDebug;
-					
+					$fromClass = $arr['class'] .'::';
 				}
-			}
-			
-			array_reverse($tempArr);
-			$myData = null;
-			foreach($tempArr as $num=>$func) {
-				$myData = ToolBox::create_list($myData, "#". $i ." ". $func, "\n");
-				$i++;
+				
+				$args = '';
+				foreach($arr['args'] as $argData) {
+					$args = ToolBox::create_list($args, ToolBox::truncate_string(ToolBox::debug_print($argData, 0, 1, false), 600), ', ');
+				}
+				
+				$fileDebug = "";
+				if(isset($arr['file'])) {
+					$fileDebug = " from file <u>". $arr['file'] ."</u>, line #". $arr['line'];
+				}
+				$tempArr[$num] = $fromClass . $arr['function'] .'('. $args .')'. $fileDebug;
+				
 			}
 		}
-		else {
-			//nothing available...
-			$myData = $stuff;
+		
+		array_reverse($tempArr);
+		$myData = null;
+		foreach($tempArr as $num=>$func) {
+			$myData = ToolBox::create_list($myData, "#". $i ." ". $func, "\n");
+			$i++;
 		}
-//	}
+	}
+	else {
+		//nothing available...
+		$myData = $stuff;
+	}
 	
 	$backTraceData = ToolBox::debug_print($myData, $printItForMe, $removeHR);
 	return($backTraceData);
@@ -74,17 +64,6 @@ function debug_backtrace($printItForMe=NULL,$removeHR=NULL) {
 
 function get_where_called() {
 	$stuff = \debug_backtrace();
-//	foreach($stuff as $num=>$arr) {
-//		if($arr['function'] != __FUNCTION__ && $arr['function'] != 'debug_backtrace' && (!is_null($fromMethod) && $arr['function'] != $fromMethod)) {
-//			#$retval = $arr['function'];
-//			$fromClass = $arr['class'];
-//			if(!$fromClass) {
-//				$fromClass = '**GLOBAL**';
-//			}
-//			$retval = $arr['function'] .'{'. $fromClass .'}';
-//			break;
-//		} 
-//	}
 	$myData = $stuff[2];
 	$fromClass = $myData['class'];
 	if(!$fromClass) {

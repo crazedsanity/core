@@ -14,7 +14,6 @@ class AutoLoader {
 	public static function registerDirectory($dirName) {
 		$di = new DirectoryIterator($dirName);
 		foreach ($di as $file) {
-//crazedsanity\cs_global::debug_print("\t". __METHOD__ .": processing $dirName (". $file->getFilename() .")... ",1);
 			 
 			if ($file->isDir() && !$file->isLink() && !$file->isDot()) {
 				// recurse into directories other than a few special ones
