@@ -17,7 +17,3 @@ if(!defined('UNITTEST__LOCKFILE')) { // fixes issues with running in a separate 
 	define('UNITTEST_ACTIVE', true);
 }
 
-AutoLoader::registerDirectory(dirname(__FILE__) .'/../');
-
-require_once(__DIR__ .'/../base.abstract.php');
-require_once(__DIR__ .'/../FileSystem.class.php');

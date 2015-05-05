@@ -64,3 +64,4 @@ class AutoLoader {
 }
  
 spl_autoload_register(array('AutoLoader', 'loadClass'));
+AutoLoader::registerDirectory(__DIR__);
