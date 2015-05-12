@@ -5,7 +5,7 @@
  *   For more information, check out semver.org (Semantic Versioning).
  */
 
-namespace crazedsanity;
+namespace crazedsanity\core;
 
 class Version {
 	
@@ -26,7 +26,7 @@ class Version {
 	#abstract public function __construct();
 	//=========================================================================
 	function __construct($makeGfObj=true) {
-		$this->set_version_file_location(dirname(__FILE__) . '/VERSION');
+		$this->set_version_file_location(dirname(__FILE__) . '/../../VERSION');
 		$this->get_version();
 		$this->get_project();
 	}//end __construct()
@@ -144,6 +144,12 @@ class Version {
 			
 			if(file_exists($dir .'/VERSION')) {
 				$this->set_version_file_location($dir .'/VERSION');
+			}
+			elseif(file_exists($dir .'/../VERSION')) {
+				$this->set_version_file_location($dir .'/../VERSION');
+			}
+			elseif(file_exists($dir .'/../../VERSION')) {
+				$this->set_version_file_location($dir .'/../../VERSION');
 			}
 			else {
 				if(function_exists('cs_debug_backtrace')) {

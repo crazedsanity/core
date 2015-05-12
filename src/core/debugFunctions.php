@@ -1,7 +1,7 @@
 <?php
 
-namespace crazedsanity;
-use crazedsanity\ToolBox;
+namespace crazedsanity\core;
+use crazedsanity\core\ToolBox;
 
 function debug_backtrace($printItForMe=NULL,$removeHR=NULL) {
 	if(is_null($printItForMe)) {

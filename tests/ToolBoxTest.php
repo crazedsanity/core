@@ -3,9 +3,9 @@
  * Created on Jan 13, 2009
  */
 
-use crazedsanity\baseAbstract;
-use crazedsanity\Lockfile;
-use crazedsanity\ToolBox;
+use crazedsanity\core\baseAbstract;
+use crazedsanity\core\Lockfile;
+use crazedsanity\core\ToolBox;
 
 
 //=============================================================================
@@ -100,7 +100,7 @@ class TestOfToolBox extends PHPUnit_Framework_TestCase {
 	}
 	
 	public function test_whereCalled() {
-		$data = crazedsanity\get_where_called();
+		$data = crazedsanity\core\get_where_called();
 		$this->assertFalse(is_null($data));
 	}
 	

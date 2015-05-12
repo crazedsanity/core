@@ -1,8 +1,8 @@
 <?php
 
-namespace crazedsanity;
+namespace crazedsanity\core;
 
-use crazedsanity\ToolBox;
+use crazedsanity\core\ToolBox;
 use \InvalidArgumentException;
 use \Exception;
 

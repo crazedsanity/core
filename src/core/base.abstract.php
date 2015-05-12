@@ -1,6 +1,6 @@
 <?php
 
-namespace crazedsanity;
+namespace crazedsanity\core;
 
 /**
  * @codeCoverageIgnore

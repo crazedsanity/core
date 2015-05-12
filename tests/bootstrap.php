@@ -5,8 +5,10 @@
 // set the timezone to avoid spurious errors from PHP
 date_default_timezone_set("America/Chicago");
 
-require_once(dirname(__FILE__) .'/../AutoLoader.class.php');
-require_once(dirname(__FILE__) .'/../debugFunctions.php');
+require_once(__DIR__ .'/../src/core/debugFunctions.php');
+if(file_exists(__DIR__ .'/../vendor/autoload.php')) {
+	require_once(__DIR__ .'/../vendor/autoload.php');
+}
 
 // set a constant for testing...
 if(!defined('UNITTEST__LOCKFILE')) { // fixes issues with running in a separate process...

@@ -3,11 +3,13 @@
  * Created on Jan 13, 2009
  */
 
-use crazedsanity\baseAbstract;
-use crazedsanity\Lockfile;
-use crazedsanity\ToolBox;
-use crazedsanity\FileSystem;
+use crazedsanity\core\baseAbstract;
+use crazedsanity\core\Lockfile;
+use crazedsanity\core\ToolBox;
+use crazedsanity\core\FileSystem;
 
+
+require_once(__DIR__ .'/../src/core/FileSystem.class.php');
 
 //=============================================================================
 class TestOfCSFileSystem extends PHPUnit_Framework_TestCase {

@@ -1,8 +1,8 @@
 <?php
 
-namespace crazedsanity;
+namespace crazedsanity\core;
 
-use crazedsanity\FileSystem;
+use crazedsanity\core\FileSystem;
 
 class Lockfile {
 	/**  */

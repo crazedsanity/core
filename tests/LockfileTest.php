@@ -1,8 +1,8 @@
 <?php
 
-use crazedsanity\baseAbstract;
-use crazedsanity\Lockfile;
-use crazedsanity\ToolBox;
+use crazedsanity\core\baseAbstract;
+use crazedsanity\core\Lockfile;
+use crazedsanity\core\ToolBox;
 
 class TestOfLockfile extends PHPUnit_Framework_TestCase {
 	public $fs;
