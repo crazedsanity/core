@@ -17,7 +17,6 @@
 		"classmap":	["src/"]
 	},
 	"require": {
-		"php":	">=5.3.0",
-		"crazedsanity/siteconfig": "~0.1"
+		"php":	">=5.3.0"
 	}
 }
