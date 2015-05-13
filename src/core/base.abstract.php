@@ -1,6 +1,7 @@
 <?php
 
 namespace crazedsanity\core;
+use crazedsanity\version\Version;
 
 /**
  * @codeCoverageIgnore
