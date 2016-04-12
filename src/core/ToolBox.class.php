@@ -561,7 +561,7 @@ class ToolBox {
 		ob_end_clean();
 		
 		if($usePreTags === true) {
-			$output = "<pre>$output</pre>";
+			$output = "<pre class='cs debug'>$output</pre>";
 		}
 		
 		if(!isset($_SERVER['SERVER_PROTOCOL']) || !$_SERVER['SERVER_PROTOCOL']) {
