@@ -26,18 +26,19 @@ class ToolBox {
 			if(isset($_SESSION['__conditional_header__'])) {
 				$number = $_SESSION['__conditional_header__']['number'];
 				$lastTime = $_SESSION['__conditional_header__']['last_time'];
-				if((time() - $lastTime) <= 1 && $number > 5) {
+				$timeSinceLast = microtime(true) - $lastTime;
+				if(($timeSinceLast) <= 0.005 && $number > 5) {
 					unset($_SESSION['__conditional_header__']);
-					throw new Exception(__METHOD__ .": too many redirects (". $number .") in a short time, last url: (". $url .")");
+					throw new Exception(__METHOD__ .": too many redirects (". $number .") in a short time (". $timeSinceLast ."), last url: (". $url .")");
 				}
 				else {
 					$_SESSION['__conditional_header__']['number']++;
-					$_SESSION['__conditional_header__']['last_time'] = time();
+					$_SESSION['__conditional_header__']['last_time'] = microtime(true);
 				}
 			}
 			else {
 				$_SESSION['__conditional_header__'] = array(
-					'last_time'	=> time(),
+					'last_time'	=> microtime(true),
 					'number'		=> 0
 				);
 			}
