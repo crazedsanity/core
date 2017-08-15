@@ -4,7 +4,7 @@ use crazedsanity\core\baseAbstract;
 use crazedsanity\core\Lockfile;
 use crazedsanity\core\ToolBox;
 
-class TestOfLockfile extends PHPUnit_Framework_TestCase {
+class TestOfLockfile extends \PHPUnit_Framework_TestCase {
 	public $fs;
 	public $dir;
 	

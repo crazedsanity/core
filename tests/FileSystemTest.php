@@ -12,7 +12,7 @@ use crazedsanity\core\FileSystem;
 require_once(__DIR__ .'/../src/core/FileSystem.class.php');
 
 //=============================================================================
-class TestOfCSFileSystem extends PHPUnit_Framework_TestCase {
+class TestOfCSFileSystem extends \PHPUnit_Framework_TestCase {
 	
 	//-------------------------------------------------------------------------
 	public function __construct() {
