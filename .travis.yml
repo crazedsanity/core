@@ -16,6 +16,7 @@ script: vendor/bin/phpunit --coverage-text
 
 before_script:
   - composer install
+  - composer require "phpunit/phpunit" "~4.8|~5.7"
 
 notifications:
   email:
