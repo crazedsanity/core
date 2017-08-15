@@ -10,7 +10,7 @@ php:
   - 7.2
 
 before_install:
-  - if [[ ${TRAVIS_PHP_VERSION:0:1} == "5" ]]; then composer require --dev --no-update phpunit/phpunit 5.7.5; fi
+  - if [[ ${TRAVIS_PHP_VERSION:0:1} == "5" ]]; then composer require --dev --no-update phpunit/phpunit 5.7.5; else composer require --dev --no-update phpunit/phpunit ; fi
 
 install:
     - composer install
